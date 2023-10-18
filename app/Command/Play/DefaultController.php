@@ -17,21 +17,21 @@ class DefaultController extends CommandController
     public function handle(): void
     {
         if ($this->hasParam('dice')) {
-            $dice = $this->getParam('dice');
+            $quantity = (int) $this->getParam('dice');
         } else {
             $input = new Input(self::DICE_INPUT);
-            $dice = $input->read();
+            $quantity = (int) $input->read();
         }
 
-        if ($this->hasParam('face')) {
-            $face = $this->getParam('face');
+        if ($this->hasParam('faces')) {
+            $faces = (int) $this->getParam('faces');
         } else {
             $input = new Input(self::FACE_INPUT);
-            $face = $input->read();
+            $faces = (int) $input->read();
         }
 
         try {
-            $dice = DiceFactory::create($dice, $face);
+            $dice = DiceFactory::create($quantity, $faces);
             $play = $dice->play();
 
             foreach ($play['dice'] as $key => $result) {

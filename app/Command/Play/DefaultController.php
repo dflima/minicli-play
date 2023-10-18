@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Command\Play;
 
 use App\Dice\DiceFactory;
@@ -34,7 +36,7 @@ class DefaultController extends CommandController
 
             foreach ($play['dice'] as $key => $result) {
                 $number = $key + 1;
-                $this->info("Dice #{$number} rolled $result");
+                $this->info("Dice #{$number} rolled {$result}");
             }
         } catch (InvalidArgumentException $exception) {
             $this->error($exception->getMessage());

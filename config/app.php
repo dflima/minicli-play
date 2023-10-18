@@ -24,7 +24,7 @@ Minimalist, dependency-free framework for building CLI-centric PHP applications'
     ),
 
     'app_path' => [
-        __DIR__ . '/../app/Command',
+        __DIR__.'/../app/Command',
         '@minicli/command-help',
     ],
 
